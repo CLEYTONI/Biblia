@@ -8,29 +8,22 @@ Ex - Êxodo
 Lv - Levítico
 Nm - Números
 Dt - Deuteronômio
-
 Js - Josué
 Jz - Juízes
 Rt - Rute
-
 1Sm - 1 Samuel
 2Sm - 2 Samuel
-
 1Rs - 1 Reis
 2Rs - 2 Reis
-
 1Cr - 1 Crônicas
 2Cr - 2 Crônicas
-
 Esd - Esdras
 Ne - Neemias
-
 Tb - Tobias
 Jt - Judite
 Est - Ester
 1Mc - 1 Macabeus
 2Mc - 2 Macabeus
-
 Jó - Jó
 Sl - Salmos
 Pr - Provérbios
@@ -38,7 +31,6 @@ Ecl - Eclesiastes
 Ct - Cânticos
 Sb - Sabedoria
 Eclo - Eclesiástico
-
 Is - Isaías
 Jr - Jeremias
 Lm - Lamentações
@@ -57,14 +49,11 @@ Sf - Sofonias
 Ag - Ageu
 Zc - Zacarias
 Ml - Malaquias
-
 Mt - Mateus
 Mc - Marcos
 Lc - Lucas
 Jo - João
-
 At - Atos
-
 Rm - Romanos
 1Cor - 1 Coríntios
 2Cor - 2 Coríntios
@@ -78,7 +67,6 @@ Cl - Colossenses
 2Tm - 2 Timóteo
 Tt - Tito
 Fm - Filemon
-
 Hb - Hebreus
 Tg - Tiago
 1Pd - 1 Pedro
@@ -87,7 +75,6 @@ Tg - Tiago
 2Jo - 2 João
 3Jo - 3 João
 Jd - Judas
-
 Ap - Apocalipse'''.split('\n')
 
 dicionario = {'Livros': []}
@@ -106,8 +93,6 @@ for x in Variavel:
          }
          )
         
-
-
 
 with open('file.json', 'w') as file:
     json.dump(dicionario, file, indent=4)
