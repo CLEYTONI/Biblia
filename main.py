@@ -111,23 +111,3 @@ for x in Variavel:
 
 with open('file.json', 'w') as file:
     json.dump(dicionario, file, indent=4)
-
-
-print(dicionario)
-'''
-print(lista)
-
-arg1 = None
-
-for x, y in enumerate(lista):
-
-    if x % 2 == 0 and not x == 0:
-        dicionario[arg1] = y
-    
-    elif not x == 0:
-        arg1 = y
-
-    else:
-        arg1 = y
-
-# print(dicionario)'''
