@@ -1,98 +1,42 @@
+from Biblia import Ui_Form
+from  PyQt5.QtWidgets import QApplication, QWidget
+import sys
+from read_json import read_json
 import requests
-import json
+from testes import teste, dicionario, result
 
 
-Variavel = '''
-Gn - Gênesis
-Ex - Êxodo
-Lv - Levítico
-Nm - Números
-Dt - Deuteronômio
-Js - Josué
-Jz - Juízes
-Rt - Rute
-1Sm - 1 Samuel
-2Sm - 2 Samuel
-1Rs - 1 Reis
-2Rs - 2 Reis
-1Cr - 1 Crônicas
-2Cr - 2 Crônicas
-Esd - Esdras
-Ne - Neemias
-Tb - Tobias
-Jt - Judite
-Est - Ester
-1Mc - 1 Macabeus
-2Mc - 2 Macabeus
-Jó - Jó
-Sl - Salmos
-Pr - Provérbios
-Ecl - Eclesiastes
-Ct - Cânticos
-Sb - Sabedoria
-Eclo - Eclesiástico
-Is - Isaías
-Jr - Jeremias
-Lm - Lamentações
-Br - Baruc
-Ez - Ezequiel
-Dn - Daniel
-Os - Oséias
-Jl - Joel
-Am - Amós
-Ab - Abdias
-Jn - Jonas
-Mq - Miquéias
-Na - Naum
-Hab - Habacuc
-Sf - Sofonias
-Ag - Ageu
-Zc - Zacarias
-Ml - Malaquias
-Mt - Mateus
-Mc - Marcos
-Lc - Lucas
-Jo - João
-At - Atos
-Rm - Romanos
-1Cor - 1 Coríntios
-2Cor - 2 Coríntios
-Gl - Gálatas
-Ef - Efésios
-Fl - Filipenses
-Cl - Colossenses
-1Ts - 1 Tessalonicenses
-2Ts - 2 Tessalonicenses
-1Tm - 1 Timóteo
-2Tm - 2 Timóteo
-Tt - Tito
-Fm - Filemon
-Hb - Hebreus
-Tg - Tiago
-1Pd - 1 Pedro
-2Pd - 2 Pedro
-1Jo - 1 João
-2Jo - 2 João
-3Jo - 3 João
-Jd - Judas
-Ap - Apocalipse'''.split('\n')
+class Main(QWidget, Ui_Form):
+    def __init__(self) -> None:
+        super(Main, self).__init__()
+        self.setupUi(self)
 
-dicionario = {'Livros': []}
+        self.pesquisa_button.clicked.connect(self.find_versiculo)
 
-lista = []
-
-for x in Variavel:
-    if x == '' or x == ' ':
-        continue
-    y, z = tuple(x.split('-'))
-
-
-    dicionario['Livros'].append(
-        {
-            z: y
-         }
-         )
+    
+    def find_versiculo(self):
+        livro = read_json(self.livro_edit.text())
+        capitulo = self.capitulo_edit.text()
+        versiculos = self.request_biblia(livro, capitulo)
         
+        variavel = ''
+        for x in versiculos:
+            for y, z in x.items():
+                variavel += str(z)+'\n'
+                
+        self.versiculo_label.setText(variavel)
 
-with open('file.json', 'w') as file:
-    json.dump(dicionario, file, indent=4)
+    def request_biblia(self, livro, capitulo):
+        print(livro)
+        link = f'https://www.abibliadigital.com.br/api/verses/nvi/{livro}/{capitulo}'
+        api = requests.get(link).json()
+        versiculos = api['verses']
+        return versiculos
+
+
+
+if __name__ == '__main__':
+    execute = QApplication(sys.argv)
+    projeto = Main()
+    projeto.show()
+    execute.exec_()

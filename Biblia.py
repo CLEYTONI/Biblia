@@ -45,36 +45,36 @@ class Ui_Form(object):
         self.horizontalLayout.addLayout(self.verticalLayout_2)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setMaximumSize(QtCore.QSize(100, 16777215))
-        self.lineEdit.setStyleSheet("border: 2px solid rgb(0, 0, 0);\n"
+        self.livro_edit = QtWidgets.QLineEdit(Form)
+        self.livro_edit.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.livro_edit.setStyleSheet("border: 2px solid rgb(0, 0, 0);\n"
 "border-radius: 3px;\n"
 "color: rgb(0, 0, 0);")
-        self.lineEdit.setObjectName("lineEdit")
-        self.verticalLayout.addWidget(self.lineEdit)
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setMaximumSize(QtCore.QSize(50, 16777215))
-        self.lineEdit_2.setStyleSheet("border: 2px solid rgb(0, 0, 0);\n"
+        self.livro_edit.setObjectName("livro_edit")
+        self.verticalLayout.addWidget(self.livro_edit)
+        self.capitulo_edit = QtWidgets.QLineEdit(Form)
+        self.capitulo_edit.setMaximumSize(QtCore.QSize(50, 16777215))
+        self.capitulo_edit.setStyleSheet("border: 2px solid rgb(0, 0, 0);\n"
 "border-radius: 3px;\n"
 "color: rgb(0, 0, 0);")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.verticalLayout.addWidget(self.lineEdit_2)
+        self.capitulo_edit.setObjectName("capitulo_edit")
+        self.verticalLayout.addWidget(self.capitulo_edit)
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.horizontalLayout_2.addLayout(self.horizontalLayout)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pesquisa_button = QtWidgets.QPushButton(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setMinimumSize(QtCore.QSize(60, 40))
+        sizePolicy.setHeightForWidth(self.pesquisa_button.sizePolicy().hasHeightForWidth())
+        self.pesquisa_button.setSizePolicy(sizePolicy)
+        self.pesquisa_button.setMinimumSize(QtCore.QSize(60, 40))
         font = QtGui.QFont()
         font.setBold(False)
         font.setWeight(50)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.pesquisa_button.setFont(font)
+        self.pesquisa_button.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(0, 0, 0);\n"
 "    border-radius: 3px;\n"
 "    color: rgb(0, 0, 0);\n"
@@ -88,18 +88,21 @@ class Ui_Form(object):
 "    \n"
 "    background-color: rgb(80, 153, 145);\n"
 "}")
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_3.addWidget(self.pushButton)
+        self.pesquisa_button.setObjectName("pesquisa_button")
+        self.horizontalLayout_3.addWidget(self.pesquisa_button)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
         self.horizontalLayout_2.addLayout(self.horizontalLayout_3)
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
-        self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setStyleSheet("color: rgb(0, 0, 0);\n"
+        self.versiculo_label = QtWidgets.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.versiculo_label.setFont(font)
+        self.versiculo_label.setStyleSheet("color: rgb(0, 0, 0);\n"
 "border: 2px solid rgb(0, 0, 0);\n"
 "border-radius: 3px")
-        self.label_3.setObjectName("label_3")
-        self.verticalLayout_3.addWidget(self.label_3)
+        self.versiculo_label.setObjectName("versiculo_label")
+        self.verticalLayout_3.addWidget(self.versiculo_label)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -109,8 +112,8 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Livro</span></p></body></html>"))
         self.label_2.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Capítulo</span></p></body></html>"))
-        self.pushButton.setText(_translate("Form", "Pesquisar"))
-        self.label_3.setText(_translate("Form", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Nada Pesquisado</span></p></body></html>"))
+        self.pesquisa_button.setText(_translate("Form", "Pesquisar"))
+        self.versiculo_label.setText(_translate("Form", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Nada Pesquisado</span></p></body></html>"))
 
 
 if __name__ == "__main__":
